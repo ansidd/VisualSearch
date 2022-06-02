@@ -1,11 +1,5 @@
 # Reverse Visual Image and Video Search
-Final Project Repo for CS-GY 6613
 
-# Contact Information
-as15840@nyu.edu - Arjun Naga Siddappa  
-zhul09@nyu.edu - Luke Zhu  
-pg2321@nyu.edu - Priya Ganguly  
- 
  
 # Code Setup
  Steps to setup the code:
@@ -27,13 +21,13 @@ Other Resources:
 9. The iPython Notebook "FaceNet FineTune" was used to train the pretrained model on the custom dataset "./data/lfw_lite" (a version of LFW that has a smaller number of classes with balanced no. of images across all classes by downsampling and upsampling)
 
 
+## What is it?
 
-# Report
-## Abstract
+Reverse visual Search is a package of two functionalities: Image search from a) Image Database (ISI) and b) Video Database (ISV). By "Image Search" I mean querying where the query is an image. Given an image we want images/videos in the database that "match" the image. We make this happen we use Image Processing and Deep Learning Techniques and vector databases.
 
- This project investigates the performance of a baseline ResNet50 model and the FaceNet model in reverse image search tasks. Reverse image search is the process of searching for images similar to the queried image from a vector database. In this task, we are training and testing on the LFW data set. For any picture of a given individual, our proposed model should return images of the same individual in different settings or context. When trying to identify human faces, you can take the route of categorizing the face into a label using the name of the person–the pretrained CNN model is further trained using transfer learning to reclassify the training dataset (LFW) against the labels, such as the person’s name.
+## How in the world?
 
-keywords–milvus, embeddings, features 
+When we query for example in SQL we satisfy query conditions that work on text/numeric data. For an Image this simple equality and regex checks would not suffice. A trick we use here is to conver the images into a n-length vector. This vector form of the image would have the property to tell apart similar images and also quanitfy similarity through simple mathematical metrics here it would be the euclidean distance. These vectors of images are called embeddings. Similar images would have less euclidean distance between their embeddings. Now how do we generate these embeddings for an image? Enter Deep Learning. It is a neat trick. We first train a Deep Learning model to classify on face images, the classes being individuals. Once we obtain a good classifier, we remove the last layer of the network. Now when we pass in an image to the network it would give out a vector of n length at the end. This is the mysterious embeddings we were talking about earlier. How would these embeddings capture similarity in the images? Thats the awesomeness of tDeep Learning. The intuition is that when we train the classifier to predict the classes of a persongiven an image of a face wthe classififer would learn to analyse an image and capture the features of a face. Thus the vector outputs of the penultimate layer for similar images (those that would be predicted as the same class) would all be close to each other thus having similar euclidean distance between them would be small.
 
 ## 1. Introduction
 
