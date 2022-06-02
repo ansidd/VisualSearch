@@ -24,8 +24,7 @@ For Video Search:
 
 
 Other Resources:  
-9. The iPython Notebook "FaceNet FineTune" was used to train the pretrained model on the custom dataset "./data/lfw_lite" (a version of LFW that has a smaller number of classes with balanced no. of images across all classes by downsampling and upsampling)   
-10. The iPython Notebook "ResNet50_aws" was used to train the resnet50 model on the lfw_lite dataset.
+9. The iPython Notebook "FaceNet FineTune" was used to train the pretrained model on the custom dataset "./data/lfw_lite" (a version of LFW that has a smaller number of classes with balanced no. of images across all classes by downsampling and upsampling)
 
 
 
